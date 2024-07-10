@@ -1,0 +1,16 @@
+@bot.command(name='vida_util')
+async def lifespan(ctx, *, item):
+    lifespan_times = {
+        "papel": "1-5 años",
+        "plástico": "10-20 años",
+        "vidrio": "indefinido",
+        "orgánico": "1-3 meses",
+        "metal": "50-100 años",
+        "electrónico": "2-5 años"
+    }
+    for object_type, lifespan in lifespan_times.items():
+        if object_type in item.lower():
+            await ctx.send(f"Un {item} tiene una vida útil de aproximadamente {lifespan}.")
+            return
+    
+    await ctx.send(f"No pude encontrar información sobre la vida útil del {item}.")
